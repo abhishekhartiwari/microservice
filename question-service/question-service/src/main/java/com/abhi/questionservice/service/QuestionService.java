@@ -102,10 +102,10 @@ public class QuestionService {
 
 
 	//below 3 endpoint will get call from quiz service
-		public ResponseEntity<List<Long>> getQuestionsForQuiz(String categoryName, int numOfQuestion) {
-		    List<QuestionEntity> questionsByCategory = questionRepository.findByCategory(categoryName);
+		public ResponseEntity<List<Long>> getQuestionsForQuiz(String category, int numQuestions) {
+		    List<QuestionEntity> questionsByCategory = questionRepository.findByCategory(category);
 		    Collections.shuffle(questionsByCategory);
-		    List<QuestionEntity> randomQuestions = questionsByCategory.subList(0, numOfQuestion);
+		    List<QuestionEntity> randomQuestions = questionsByCategory.subList(0, numQuestions);
 
 		    List<Long> questionsId = new ArrayList<>();
 		    for (QuestionEntity q : randomQuestions) {
@@ -150,7 +150,7 @@ public class QuestionService {
 		        }
 		    }
 
-		    return ResponseEntity.ok(score);
+		    return new ResponseEntity<>(score, HttpStatus.OK);
 		}
 
 }

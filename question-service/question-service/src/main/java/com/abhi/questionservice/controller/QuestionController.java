@@ -64,9 +64,7 @@ public class QuestionController {
 	
 	//to get the questions from question db
 	@GetMapping("generate")
-	public ResponseEntity<List<Long>> getQuestionsForQuiz(
-		    @RequestParam("category") String category,
-		    @RequestParam("numQuestions") int numQuestions) {
+	public ResponseEntity<List<Long>> getQuestionsForQuiz(@RequestParam String category, @RequestParam int numQuestions) {
 		    
 	    if (category == null || category.isBlank()) {
 	        System.out.println("categoryName is null or blank!");
@@ -82,7 +80,7 @@ public class QuestionController {
 	}
 
 	@PostMapping("getScore")
-	public ResponseEntity<Integer> submitQuiz(@RequestBody List<Response> response) {
+	public ResponseEntity<Integer> getScore(@RequestBody List<Response> response) {
 	    return questionService.calculateResult(response);
 	}
 }

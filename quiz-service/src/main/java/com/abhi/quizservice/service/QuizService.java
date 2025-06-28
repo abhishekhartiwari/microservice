@@ -49,27 +49,9 @@ public class QuizService {
 	}
 
 
-	public ResponseEntity<Integer> calculateResult(Long quizId, List<Response> submittedQuizResponses) {
-
-//	    QuizEntity quizEntity = quizRepository.findById(quizId)
-//	            .orElseThrow(() -> new RuntimeException("Quiz not found"));
-//
-//	    List<QuestionEntity> questionsList = quizEntity.getQuestionsList();
-//
-//	    int score = 0;
-//
-//	    for (QuizResponseEntity submittedResponse : submittedQuizResponses) {
-//	        for (QuestionEntity question : questionsList) {
-//	            if (question.getId().toHexString().equals(submittedResponse.getId())) {
-//	                if (question.getAnswer().equals(submittedResponse.getResponse())) {
-//	                    score+=10;
-//	                }
-//	                break; // found matching question
-//	            }
-//	        }
-//	    }
-
-	    return null;
+	public ResponseEntity<Integer> calculateResult(Long quizId, List<Response> quizResponse) {
+		ResponseEntity<Integer> score = quizInterface.getScore(quizResponse);
+	    return score;
 	}
 
 

@@ -2,13 +2,13 @@ package com.abhi.questionservice.entity;
 
 public class Response {
 
-	private String id;
+	private Long id;
 	String response;
 	
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getResponse() {
@@ -17,13 +17,17 @@ public class Response {
 	public void setResponse(String response) {
 		this.response = response;
 	}
-	public Response(String id, String response) {
+	public Response(Long id, String response) {
 		super();
 		this.id = id;
 		this.response = response;
 	}
 	public Response() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Response [id=" + id + ", response=" + response + "]";
 	}
 
 

@@ -18,15 +18,12 @@ import com.abhi.quizservice.entity.Response;
 public interface QuizInterface {
 	
     @GetMapping("/questions/generate")
-    ResponseEntity<List<Long>> getQuestionsForQuiz(
-        @RequestParam("category") String category,
-        @RequestParam("numQuestions") int numQuestions
-    );
+    ResponseEntity<List<Long>> getQuestionsForQuiz(@RequestParam String category, @RequestParam int numQuestions);
     
-	@PostMapping("questions/getQuizQuestions")
+	@PostMapping("/questions/getQuizQuestions")
 	public ResponseEntity<List<QuestionWrapper>> getQuizQuestionsById(@RequestBody List<Long> quesIds);
 
-	@PostMapping("questions/getScore")
-	public ResponseEntity<Integer> submitQuiz(@RequestBody List<Response> response);
+	@PostMapping("/questions/getScore")
+	public ResponseEntity<Integer> getScore(@RequestBody List<Response> response);
 
 }
