@@ -1,7 +1,5 @@
 package com.abhi.quizapp.entity;
 
-import org.bson.types.ObjectId;
-
 public class QuizResponseEntity {
 
 	private String id;

@@ -2,6 +2,7 @@ package com.abhi.quizapp.entity;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,14 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class QuizEntity {
 
 	@Id
-	private Long id;
+	private ObjectId id;
 	private String title;
 	private List<QuestionEntity> questionsList;
 	
-	public Long getId() {
+	public ObjectId getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -31,7 +32,7 @@ public class QuizEntity {
 	public void setQuestionsList(List<QuestionEntity> questionsList) {
 		this.questionsList = questionsList;
 	}
-	public QuizEntity(Long id, String title, List<QuestionEntity> questionsList) {
+	public QuizEntity(ObjectId id, String title, List<QuestionEntity> questionsList) {
 		super();
 		this.id = id;
 		this.title = title;

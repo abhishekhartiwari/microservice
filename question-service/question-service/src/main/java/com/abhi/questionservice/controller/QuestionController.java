@@ -3,6 +3,7 @@ package com.abhi.questionservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,9 @@ public class QuestionController {
 
 	@Autowired
 	QuestionService questionService;
+	
+	@Autowired
+	Environment env;
 
 	@GetMapping("allQuestions")
 	public List<QuestionEntity> getAllQuestions() {
@@ -76,6 +80,7 @@ public class QuestionController {
 
 	@PostMapping("getQuizQuestions")
 	public ResponseEntity<List<QuestionWrapper>> getQuizQuestionsById(@RequestBody List<Long> quesIds) {
+		System.out.println(env.getProperty("local.server.port"));
 	    return questionService.getQuizQuestionsById(quesIds);
 	}
 
